@@ -1,0 +1,65 @@
+Redux Toolkit
+
+https://redux-toolkit.js.org/
+
+
+https://daveceddia.com/what-is-a-thunk/
+
+
+A thunk is another word for a function. But it’s not just any old function. 
+It’s a special (and uncommon) name for a function that’s returned by another. Like this:
+
+function wrapper_function() {
+  // this one is a "thunk" because it defers work for later:
+  return function thunk() {   // it can be named, or anonymous
+    console.log('do stuff now');
+  };
+}
+
+
+
+
+https://reactgo.com/thunks-javascript/
+
+A thunk is just a function which delays the evaluation of the value.
+
+The thunk function doesn’t take any arguments and gives the value whenever you invoke the thunk.
+
+
+EX1 -------------------------------------------------------------------------
+
+function subtract(x,y){
+    return x-y;
+}
+
+// subtract function is evaluated the
+// expression and result is returned immediately
+console.log(subtract(5,3)) // 2
+
+
+// this is a thunk function
+
+// result is delayed untill we call the thunk() function
+const thunk = function (){
+    return subtract(5,3);
+}
+
+// we always get the same data whenever we call the thunk function
+console.log(thunk()) // 2
+
+EX2 -------------------------------------------------------------------------
+
+function fetchData(fn){
+   setTimeout(()=>fn(1),2000)
+}
+
+
+const asyncThunk = function (){
+   return fetchData(function(data){
+      console.log(data)
+  })
+}
+
+asyncThunk()
+
+// 1

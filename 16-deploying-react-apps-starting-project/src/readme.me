@@ -1,0 +1,46 @@
+> npm run build
+ or 
+> yarn run build
+
+and verify the carpet build
+
+if you need to use another name or move that folder 
+see: 
+
+https://stackoverflow.com/questions/41495658/use-custom-build-output-folder-when-using-create-react-app
+
+for this example, we use firebase hosting
+
+> npm install -g firebase-tools
+
+then 
+> firebase login
+
+Note: any problem with auth, check for https://stackoverflow.com/questions/52891500/http-error-401-while-setting-up-firebase-cloud-functions-for-android-project
+
+then 
+
+> firebase init
+
+ ( select Hosting ) 
+
+ then "use an existing project"
+
+then wrote "build" for the following questions
+
+What do you want to use as your public directory ? build
+
+- configure as a single-page app (rewrite all urls to /index.html?)? Y
+- set up automatic builds and deploys with github ? No
+- file build/index.html already exists. Overwrite ? No
+
+at the end:
+
+firebase deploy
+
+
+url hosting: https://react-http-9332d.web.app
+
+to disable and remove the hosting
+
+> firebase hosting:disable
